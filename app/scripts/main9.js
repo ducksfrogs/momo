@@ -4,9 +4,6 @@ const svg = canvas.append("svg")
               .attr("width", 600)
               .attr("height", 600)
 
-const margin = {top: 20, right:20. bottom:20}
-
-
 const margin = {top: 20, right: 10, bottom: 20, left: 10};
 const graphWidth = 600 - margin.left - margin.right;
 const graphHeight = 600 - margin.top - margin.bottom;
@@ -20,7 +17,3 @@ const graphHeight = 600 - margin.top - margin.bottom;
 area = svg.append("g")
         .attr("width", graphWidth)
         .attr("height", graphHeight)
-
-var linearGen = d3.line()
-                    .x(d,i) 
-                    .y()
