@@ -3,7 +3,10 @@
   {"width": 25, "height": 10, "fill": "blue"},
   {"width": 25, "height": 30, "fill": "yellow"},
   {"width": 25, "height": 90, "fill": "gray"},
-  {"width": 25, "height": 10, "fill": "black"},
-  {"width": 25, "height": 60, "fill":"gray"},
+  {"width": 25, "height": 80, "fill": "black"},
+  {"width": 25, "height": 60, "fill":"green"},
+  {"width": 25, "height": 960, "fill":"magenta"},
+  {"width": 25, "height": 460, "fill":"green"},
+  {"width": 25, "height": 860, "fill":"purple"},
   {"width": 25, "height": 40, "fill": "red"}
 ]

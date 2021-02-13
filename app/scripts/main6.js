@@ -12,18 +12,29 @@ d3.json('./scripts/test.json')
           console.log(data)
           const y = d3.scaleLinear()
               .domain([0, d3.max(data, d => d.height)])
-              .range([0, 250]);
+              .range([0, 400]);
 
           console.log(y);
           console.log(y(250));
           console.log(y(500));
 
+      const x = d3.scaleBand()
+                .domain(data.map(item => item.fill ))
+                .range([0,500]);
+
+        console.log(data.map(item => item.fill ))
+
+        // console.log(x("red"))
+        // console.log(x("blue"))
+        // console.log(x("pink"))
+        // console.log(x("red"))
+        // console.log(x("red"))
+
+        console.log(x.bandwidth());
           rect.data(data)
               .enter().append('rect')
-              .attr("width", (d,i) => d.width)
+              .attr("width", x.bandwidth)
               .attr('height', (d,i) => y(d.height))
               .attr('fill', (d, i) => d.fill)
-              .attr('x', (d,i) => i*26)
-
-
+              .attr('x', (d,i) => x(d.fill))
       })
