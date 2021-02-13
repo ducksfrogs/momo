@@ -15,8 +15,6 @@ const svg = canvas.append('svg')
 
 d3.json(api_url)
       .then(data => {
-
-          console.log(data.features)
           const circle = svg.selectAll('circle')
                       .data(data.features);
 
@@ -28,6 +26,15 @@ d3.json(api_url)
           circle.enter().append('circle')
                 .attr('cx', (d,i) => d.properties.mag * 80)
                 .attr('cy', (d, i) => Math.floor(Math.random()*100)+ d.properties.mag)
-                .attr('r', (d,i) => d.properties.mag*4)
+                .attr('r', function(d,i, n){
+                      console.log(n[i]);
+                      return d.properties.mag*4
+                }  )
+                .on("mouseover", function(d, i, n){
+                  d3.select(n[i])
+                  .transition()
+                  .duration(100)
+                  .style('opacity', 0.4)
+                })
                 .attr('fill', (d,i) => d.properties.alert)
         });
