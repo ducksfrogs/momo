@@ -11,20 +11,16 @@ df.head()
 df = df[['cat01_code', 'time_code', 'value']]
 
 
+df['time_code'] = df['time_code'].astype('str')
+
+
+
+
+
 df_cup = df[df['cat01_code'] == 10130050]
 
 
 df_inst = df[df['cat01_code'] == 10130060]
-
-
-df_inst['time_code'] = df_inst['time_code'].astype('str')
-
-
-df_inst['time_code'].str[6:8]
-
-
-plt.figure(figsize=(15,6))
-plt.plot(df_inst['time_code'], df_inst['value'])
 
 
 def make_str(data):
@@ -37,13 +33,7 @@ def make_str(data):
 import datetime
 
 
-
-
-
-y = df_inst["time_code"].str[:4]
-
-
-m = df_inst['time_code'].str[6:8]
+df_cup['date'] = df_cup['time_code'].apply(make_str)
 
 
 df_inst['date'] = df_inst['time_code'].apply(make_str)
@@ -52,14 +42,18 @@ df_inst['date'] = df_inst['time_code'].apply(make_str)
 df_inst.info()
 
 
-datetime.datetime(df_inst['date'])
+df_cup.info()
+
+
+plt.figure(figsize=(20,10))
+plt.plot(df_inst['date'], df_inst['value'])
+plt.plot(df_cup['date'], df_cup['value'])
+
+
+df_inst.to_json('inst.json')
+
+
+df_cup.to_json('cup.json')
 
 
 
-
-
-plt.plot(df_droped['time_code'], df_droped['value'])
-
-
-df_droped.to_csv('ddd.csv
-                 ')
