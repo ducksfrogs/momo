@@ -35,21 +35,42 @@ d3.json('./scripts/test.json')
                 .paddingInner(0.1)
                 .paddingOuter(0.2);
 
+              const xAxis = d3.axisBottom(x);
+              const yAxis = d3.axisLeft(y);
+
+              xAxisGroup.call(xAxis);
+              yAxisGroup.call(yAxis);
+
         console.log(data.map(item => item.fill ))
 
 
         console.log(x.bandwidth());
           rect.data(data)
               .enter().append('rect')
+              .transition()
+                .attr("y", d => y(d.height))
+                .delay(function(d,i){
+                  return i *1000;
+                })
+                .ease(d3.easeBounceIn)
               .attr("width", x.bandwidth)
               .attr('height', (d,i) => graphHeight - y(d.height))
               .attr('fill', (d,i) => d.fill)
               .attr('x', (d,i) => x(d.fill))
               .attr('y', d => y(d.height))
+              // .on("mouseover", function(d,i,n) {
+              //   d3.select(n[i])
+              //     .transition()
+              //     .duration(100)
+              //     .style('opacity', 0.7)
+              //
+              // })
+              // .on("mouseout", function(d,i,n) {
+              //   d3.select(n[i])
+              //     .transition()
+              //     .duration(100)
+              //     .style('opacity', 1)
+              //
+              // })
 
-              const xAxis = d3.axisBottom(x);
-              const yAxis = d3.axisLeft(y);
-
-              xAxisGroup.call(xAxis);
-              yAxisGroup.call(yAxis);
       })
