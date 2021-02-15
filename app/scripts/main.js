@@ -28,4 +28,4 @@ rect.data(dataArray)
         .attr('y', function(d, i){
           return 100 -(d.height*2);
         } )
-console.log("ddd")
+console.log('ddd')

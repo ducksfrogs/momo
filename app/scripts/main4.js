@@ -30,7 +30,7 @@ d3.json(api_url)
                       console.log(n[i]);
                       return d.properties.mag*4
                 }  )
-                .on("mouseover", function(d, i, n){
+                .on('mouseover', function(d, i, n){
                   d3.select(n[i])
                   .transition()
                   .duration(100)

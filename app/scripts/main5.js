@@ -1,4 +1,4 @@
-console.log("hello");
+console.log('hello');
 const canvas = d3.select('.canva');
 
 const svg = canvas.append('svg')
@@ -20,7 +20,7 @@ d3.json('./scripts/test.json')
 
           rect.data(data)
               .enter().append('rect')
-              .attr("width", (d,i) => d.width)
+              .attr('width', (d,i) => d.width)
               .attr('height', (d,i) => y(d.height))
               .attr('fill', (d, i) => d.fill)
               .attr('x', (d,i) => i*26)

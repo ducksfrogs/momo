@@ -21,19 +21,29 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div class="container">
-      <a href="./vue.html">vue</a>
-      <div class="canva">
+      <div id="app">
+        <div class="product-img">
+          <img v-bind:src="image">
 
+        </div>
+        <div class="product-info">
+
+          <h1>{{ product }}</h1>
+          <p v-if='inStock'>In stock</p>
+          <p></p>
+          <p v-else>Out stock</p>
+        </div>
       </div>
+
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script src="https://d3js.org/d3.v6.min.js"></script>
     <!-- build:js scripts/vendor.js -->
     <script type="text/javascript" src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <!-- endbuild -->
     <!-- build:js scripts/main.js -->
-    <script src="scripts/main8.js"></script>
+    <script src="scripts/vue.js"></script>
     <!-- endbuild -->
   </body>
 </html>
